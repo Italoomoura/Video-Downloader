@@ -6,40 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Downloader</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Baixar Vídeo Youtube</h1>
-    <label>Link do Vídeo: </label>
-    <input type="text" placeholder="Link do Vídeo" class="link">
-    <br>
-    <label>Formato: </label>
-    <select class="format" required>
-        <option selected disabled>Selecione o Formato do Vídeo</option>
-        <option value="mp3">Mp3</option>
-        <option value="mp4a">144</option>
-        <option value="360">360</option>
-        <option value="480">480</option>
-        <option value="720">720</option>
-        <option value="1080">1080</option>
-        <option value="4k">4k</option>
-        <option value="8k">8k</option>
-    </select>
-    <div class="button-container">
-        <button class="btn" type="submit">Start</button>
+    <header class="barra">
+        <img class="img" src="youtube-logo-png-46018.png">  
+        <h1 class="titulo-principal">Baixar Vídeo Youtube</h1>
+    </header>
+<div class="form-group" style="text-align: center;"> 
+    <div style="background: white; display: flex; justify-content: center; align-items: center; height: 15vh; flex-direction: column;">
+        <label>Link do Vídeo: </label>
+        <input type="text" placeholder="Link do Vídeo" class="link">
+            <br>
+        <label>Formato: </label>
+        <select class="format" required>
+            <option selected disabled>Selecione o Formato do Vídeo</option>
+            <option value="mp3">Mp3</option>
+            <option value="mp4a">144</option>
+            <option value="360">360</option>
+            <option value="480">480</option>
+            <option value="720">720</option>
+            <option value="1080">1080</option>
+            <option value="4k">4k</option>
+            <option value="8k">8k</option>
+        </select>
     </div>
-    
-    <script>
-        $(".btn").click(function(){
-            var link = $(".link").val();
-            var format = $(".format").children("option:selected").val();
-            var src = "" + link + "=" + format + "";
-            download(link, format);
-        });
+    <div class="btn">
+        <button class="btn" type="submit">Start</button>
+    </div>     
+</div>
+<script>
+    $(".btn").click(function(){
+        var link = $(".link").val();
+        var format = $(".format").children("option:selected").val();
+        var src = "" + link + "=" + format + "";
+        download(link, format);
+    });
 
-        function download(link, format){
-            $(".button-container").html('<iframe style="heigth:10px; border:none; overflow:hidden;" src="https://loader.to/api/button/?url='+ link +'&f=' + format +'"></iframe>');
-        }
+    function download(link, format){
+        $(".btn").html('<iframe style="heigth:10px; border:none; overflow:hidden;" src="https://loader.to/api/button/?url='+ link +'&f=' + format +'"></iframe>');
+    }
 
-    </script>
+</script>
 </body>
 </html>
